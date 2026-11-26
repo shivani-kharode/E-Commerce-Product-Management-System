@@ -35,6 +35,10 @@ public class ProductReview {
 	
 	private String reviewText;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 
 	private LocalDateTime createdAt=LocalDateTime.now();
 	
@@ -45,14 +49,15 @@ public class ProductReview {
 	}
 
 
-	public ProductReview(int reviewId, Product pro, String customerName, int rating, String reviewText,
+	public ProductReview(int reviewId, Product product, String customerName, int rating, String reviewText, User user,
 			LocalDateTime createdAt) {
 		super();
 		this.reviewId = reviewId;
-		this.product = pro;
+		this.product = product;
 		this.customerName = customerName;
 		this.rating = rating;
 		this.reviewText = reviewText;
+		this.user = user;
 		this.createdAt = createdAt;
 	}
 
@@ -67,13 +72,13 @@ public class ProductReview {
 	}
 
 
-	public Product getPro() {
+	public Product getProduct() {
 		return product;
 	}
 
 
-	public void setPro(Product pro) {
-		this.product = pro;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 
@@ -107,6 +112,16 @@ public class ProductReview {
 	}
 
 
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
@@ -115,8 +130,9 @@ public class ProductReview {
 	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
-	
-	
+
+
+
 	
 	
 	

@@ -26,7 +26,7 @@ public class ProductReviewsMapper {
 		response.setCustomerName(review.getCustomerName());
 		response.setRating(review.getRating());
 		response.setReviewText(review.getReviewText());
-		response.setProductId(review.getPro().getProductId());
+		response.setProductId(review.getProduct().getProductId());
 		
 		return response;
 	}

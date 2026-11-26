@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Carts {
@@ -21,42 +23,65 @@ public class Carts {
 	@OneToMany(mappedBy="carts",cascade=CascadeType.ALL)
 	List<CartItems> cartitems = new ArrayList<>();
 	
-	public Carts(int cartId, String customerName, List<CartItems> cartitems) {
-		super();
-		this.cartId = cartId;
-		this.customerName = customerName;
-		this.cartitems = cartitems;
-	}
-
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
 	public Carts() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+
+	public Carts(int cartId, String customerName, List<CartItems> cartitems, User user) {
+		super();
+		this.cartId = cartId;
+		this.customerName = customerName;
+		this.cartitems = cartitems;
+		this.user = user;
+	}
+
+
 	public int getCartId() {
 		return cartId;
 	}
+
 
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
 
+
 	public String getCustomerName() {
 		return customerName;
 	}
+
 
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
 
+
 	public List<CartItems> getCartitems() {
 		return cartitems;
 	}
 
+
 	public void setCartitems(List<CartItems> cartitems) {
 		this.cartitems = cartitems;
 	}
-	
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	
 	
 	

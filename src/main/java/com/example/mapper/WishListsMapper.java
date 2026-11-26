@@ -10,7 +10,7 @@ public class WishListsMapper {
 	public static WishLists toEntity(WistListsDTORequest wish, Product product ) {
 		
 		WishLists wl = new WishLists();
-		wl.setPro(product);
+		wl.setProduct(product);
 		wl.setCustomerName(wish.getCustomerName());
 		return wl;
 		
@@ -22,7 +22,7 @@ public class WishListsMapper {
 		 
 		 wish.setWishlistId(wl.getWishlistId());
 		 wish.setCustomerName(wl.getCustomerName());
-		 wish.setProductId(wl.getPro().getProductId());
+		 wish.setProductId(wl.getProduct().getProductId());
 		 return wish;
 		
 	}

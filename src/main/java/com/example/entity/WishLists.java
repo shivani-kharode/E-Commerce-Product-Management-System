@@ -24,51 +24,78 @@ public class WishLists {
 	      @JoinColumn(name="product_id")
 	      private Product product;
 	      
+	      @ManyToOne
+	      @JoinColumn(name="user_id")
+	      private User user;
+	      
 	      private LocalDateTime addedAt= LocalDateTime.now();
 
-		  public WishLists(int wishlistId, String customerName, Product pro, LocalDateTime addedAt) {
-			super();
-			this.wishlistId = wishlistId;
-			this.customerName = customerName;
-			this.product = pro;
-			this.addedAt = addedAt;
-		  }
-
+		 
 		  public WishLists() {
 			super();
 			// TODO Auto-generated constructor stub
 		  }
 
+
 		  public int getWishlistId() {
 			  return wishlistId;
 		  }
+
 
 		  public void setWishlistId(int wishlistId) {
 			  this.wishlistId = wishlistId;
 		  }
 
+
 		  public String getCustomerName() {
 			  return customerName;
 		  }
+
 
 		  public void setCustomerName(String customerName) {
 			  this.customerName = customerName;
 		  }
 
-		  public Product getPro() {
+
+		  public Product getProduct() {
 			  return product;
 		  }
 
-		  public void setPro(Product pro) {
-			  this.product = pro;
+
+		  public void setProduct(Product product) {
+			  this.product = product;
 		  }
+
+
+		  public User getUser() {
+			  return user;
+		  }
+
+
+		  public void setUser(User user) {
+			  this.user = user;
+		  }
+
 
 		  public LocalDateTime getAddedAt() {
 			  return addedAt;
 		  }
 
+
 		  public void setAddedAt(LocalDateTime addedAt) {
 			  this.addedAt = addedAt;
 		  }
+
+
+		  public WishLists(int wishlistId, String customerName, Product product, User user, LocalDateTime addedAt) {
+			super();
+			this.wishlistId = wishlistId;
+			this.customerName = customerName;
+			this.product = product;
+			this.user = user;
+			this.addedAt = addedAt;
+		  }
+
+		
  
 }

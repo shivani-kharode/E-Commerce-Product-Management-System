@@ -27,7 +27,7 @@ public class ProductReviewRepository {
 		        	 throw new RuntimeException("Product  is not  found");
 		         }
 		         
-		         review.setPro(product);
+		         review.setProduct(product);
 		      
 		                session.save(review);
 		                tx.commit();

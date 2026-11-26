@@ -32,10 +32,5 @@ public class OrdersDTORequest {
 		   this.orderStatus = orderStatus;
 	   }
 
-	  
-
-	  
-	   
-	   
 
 }
