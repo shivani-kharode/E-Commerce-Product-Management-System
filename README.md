@@ -9,15 +9,20 @@ The system allows management of **products, carts, wishlists, orders, ratings, r
 - Product search by name, category, and price range
 - Product stock management
 - Ratings and reviews for products
-- Wishlist management
-- Cart management
 - Order placement and status update
 - Product image metadata management (no file upload, only metadata)
 
+ - Authentication & Authorization
+   User registration
+   User login
+   BCrypt password encryption
+   JWT token generation
+   Role-based access control (RBAC)
+   Default CUSTOMER role assignment during registration
 ---
 
 ## 🛠️ Tech Stack
-- **Backend:** Java, Spring Boot, Hibernate
+- **Backend:** Java, Spring Boot, Hibernate ,Spring security ,JWT authentication
 - **Database:** MySQL
 - **API Testing:** Postman
 - **Version Control:** Git & GitHub
@@ -35,12 +40,17 @@ The system allows management of **products, carts, wishlists, orders, ratings, r
 - `cart_items`
 - `orders`
 - `order_items`
+- `users`
+- `roles`
+- `user_roles`
+
 
 **Relationships:**
 - One Product → Many Reviews
 - One Product → Many Images
 - One Cart → Many Cart Items
 - One Order → Many Order Items
+- One User → Many Roles
 
 ---
 
@@ -55,7 +65,11 @@ The system allows management of **products, carts, wishlists, orders, ratings, r
 - Invalid order status transitions prevented (PENDING → SHIPPED → DELIVERED)
 - Delivered orders cannot be updated
 
----
+## ✅ Authentication Business Rules
+Email must be unique
+Passwords are stored in encrypted form using BCrypt
+Every newly registered user receives CUSTOMER role
+Invalid login credentials are rejected
 
 ## 🧪 Postman Collection
 All APIs have been **tested using Postman**. You can import the collection here:
